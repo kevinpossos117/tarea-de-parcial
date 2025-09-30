@@ -16,6 +16,7 @@ a,b
 
 ---
 ## pregunta 2
+
 class A:
     def __init__(self):
         self.__secret = 42
@@ -42,22 +43,80 @@ false true
 ## Pregunta 3
 **Verdadero/Falso (explica por qué)**
 
-a. El prefijo _ impide el acceso desde fuera.  Falso. Solo es convención.
-b. El prefijo __ hace imposible acceder.  Falso. Se puede acceder con name mangling.
-c. El name mangling depende del nombre de la clase.  Verdadero.
-
+- El prefijo _ impide el acceso desde fuera.  Falso. Solo es convención.
+- El prefijo __ hace imposible acceder.  Falso. Se puede acceder con name mangling.
+- El name mangling depende del nombre de la clase.  Verdadero.
 ---
+## pregunta 4
 
-## Pregunta 4
-**¿Por qué se usan los guiones bajos (`_` y `__`) en los atributos de clase?**
+class Base:
+    def __init__(self):
+        self._token = "abc"
 
-- Para indicar el **nivel de acceso**: público, protegido o privado.  
-- Aunque en Python no hay verdadera privacidad, la convención ayuda a escribir código más organizado y seguro.
+class Sub(Base):
+    def reveal(self):
+        return self._token
+
+print(Sub().reveal())
+
+**que imprime y por que no da error?**
+
+**respuesta**
+
+Imprime: abc.
+
+No hay error porque _token es solo convención, no restricción real.
+
+![alt text](image-1.png)
 
 ---
 
 ## Pregunta 5
-**Explique brevemente la diferencia entre un atributo protegido y uno privado.**
 
-- **Protegido (`_atributo`)**: accesible dentro de la clase y subclases, pero no debería usarse desde fuera (solo convención).  
-- **Privado (`__atributo`)**: Python aplica *name mangling*, lo que lo hace más difícil de acceder desde fuera.  
+class Base:
+    def __init__(self):
+        self.__v = 1
+
+class Sub(Base):
+    def __init__(self):
+        super().__init__()
+        self.__v = 2
+    def show(self):
+        return (self.__v, self._Base__v)
+
+print(Sub().show())
+
+**cual es la salida?**
+
+**resouesta**
+
+
+Salida: (2, 1).
+
+
+![alt text](image-2.png)
+
+---
+
+## pregunta 6
+
+**Identifica el error**
+
+class Caja:
+__slots__ = ('x',)
+c = Caja()
+c.x = 10
+c.y = 20
+
+**por que**
+
+Con __slots__, solo se pueden definir atributos listados en la tupla. Aquí solo x está permitido. Cuando intentamos asignar c.y, Python lanza un error porque y no está en __slots__.
+
+**error**
+
+![alt text](image-3.png)
+
+## ejercicio 7
+
+**Rellenar espacios**
+
