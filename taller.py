@@ -1,7 +1,6 @@
 class A:
-    x = 1
-    _y = 2
-    __z = 3
+    def __init__(self):
+        self.__secret = 42
 
-a = A( )
-
+a = A()
+print(hasattr(a, '__secret'), hasattr(a, '_A__secret'))

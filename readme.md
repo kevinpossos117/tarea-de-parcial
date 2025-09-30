@@ -12,15 +12,32 @@
 
 a,b
 
-`x` y `_y` son accesibles directamente. `__z` solo mediante *name mangling*.  
+`x` y `_y` son accesibles directamente. `__z` solo mediante "name mangling".  
 
 ---
+## pregunta 2
+class A:
+    def __init__(self):
+        self.__secret = 42
 
-## Pregunta 2
+a = A()
+print(hasattr(a, '__secret'), hasattr(a, '_A__secret'))
+
+
+**¿que imprime?**
+
+![alt text](image.png)
+
+
+
+
+
+---
+## Pregunta 3
 **Verdadero o Falso:** Los atributos privados en Python no pueden ser accedidos de ninguna manera desde fuera de la clase.  
 
-**Respuesta:** ❌ **Falso.**  
-Se pueden acceder usando *name mangling* (`obj._Clase__atributo`), aunque no es buena práctica.
+**Respuesta:**  **Falso.**  
+Se pueden acceder usando "name mangling" (`obj._Clase__atributo`).
 
 ---
 
