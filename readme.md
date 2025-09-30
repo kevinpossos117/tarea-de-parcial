@@ -41,20 +41,10 @@ false true
 ---
 ## Pregunta 3
 **Verdadero/Falso (explica por qué)**
-a) El prefijo _ impide el acceso desde fuera.  Falso. Solo es convención.
-b) El prefijo __ hace imposible acceder.  Falso. Se puede acceder con name mangling.
-c) El name mangling depende del nombre de la clase.  Verdadero.
 
----
-
-## Pregunta 3
-**¿Cuál es la forma correcta de acceder a un atributo privado en Python?**
-
-a) Directamente con `obj.__atributo`  
-b) Usando *name mangling* `obj._Clase__atributo`  
-c) A través de un método *getter/setter* definido en la clase  
-
-**Respuesta:** ✔️ La más correcta es **c)** (aunque b funciona, no es lo recomendado).  
+a. El prefijo _ impide el acceso desde fuera.  Falso. Solo es convención.
+b. El prefijo __ hace imposible acceder.  Falso. Se puede acceder con name mangling.
+c. El name mangling depende del nombre de la clase.  Verdadero.
 
 ---
 
