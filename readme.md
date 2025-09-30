@@ -26,6 +26,12 @@ print(hasattr(a, '__secret'), hasattr(a, '_A__secret'))
 
 **¿que imprime?**
 
+**respuesta**
+
+
+false true
+
+
 ![alt text](image.png)
 
 
@@ -34,10 +40,10 @@ print(hasattr(a, '__secret'), hasattr(a, '_A__secret'))
 
 ---
 ## Pregunta 3
-**Verdadero o Falso:** Los atributos privados en Python no pueden ser accedidos de ninguna manera desde fuera de la clase.  
-
-**Respuesta:**  **Falso.**  
-Se pueden acceder usando "name mangling" (`obj._Clase__atributo`).
+**Verdadero/Falso (explica por qué)**
+a) El prefijo _ impide el acceso desde fuera.  Falso. Solo es convención.
+b) El prefijo __ hace imposible acceder.  Falso. Se puede acceder con name mangling.
+c) El name mangling depende del nombre de la clase.  Verdadero.
 
 ---
 
