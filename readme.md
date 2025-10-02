@@ -116,7 +116,48 @@ Con __slots__, solo se pueden definir atributos listados en la tupla. Aquí solo
 
 ![alt text](image-3.png)
 
-## ejercicio 7
+---
+
+## Ejercicio 7
 
 **Rellenar espacios**
 
+
+class B:
+    def __init__(self):
+        self._____ = 99
+
+**respuesta**
+self._valor = 99
+
+---
+
+## ejercicio 8
+
+**Lectura de métodos “privados”**
+
+class M:
+    def __init__(self):
+        self._state = 0
+    def _step(self):
+        self._state += 1
+        return self._state
+    def __tick(self):
+        return self._step()
+
+m = M()
+print(hasattr(m, '_step'), hasattr(m, '__tick'), hasattr(m, '_M__tick'))
+
+**¿Qué imprime y por qué?**
+
+True False True
+
+**¿por que?**
+
+_step existe asi que da = True.
+
+__tick no existe con ese nombre (se manglea) y por eso da = False.
+
+_M__tick existe tras el name mangling asi que da = True.
+
+---
